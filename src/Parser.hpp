@@ -3,12 +3,13 @@
 
 #include <vector>
 #include <string>
-
 #include "Token.h"
+
+#define FUNCTION_CAST(f, ReturnType, ...) static_cast<function<ReturnType(__VA_ARGS__)>>(f)
 
 using namespace std;
 
-enum { NORMAL, ERROR } m_state; 
+enum EnParserState{ NORMAL, ERROR }; 
 
 template<typename T>
 class ParserState
